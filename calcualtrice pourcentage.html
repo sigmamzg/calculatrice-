@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice de Pourcentage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Calculatrice de Pourcentage (ROI)</h2>
+
+    <label for="capital">Capital:</label>
+    <input type="number" id="capital" placeholder="Entrez le capital" required>
+
+    <label for="pl">Profit & Loss (P&L):</label>
+    <input type="number" id="pl" placeholder="Entrez le P&L" required>
+
+    <button onclick="calculateROI()">Calculer le Pourcentage</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateROI() {
+            var capital = parseFloat(document.getElementById('capital').value);
+            var pl = parseFloat(document.getElementById('pl').value);
+
+            if (!isNaN(capital) && !isNaN(pl)) {
+                var percentage = (pl / capital) * 100;
+                document.getElementById('result').innerHTML = "Le P&L représente " + percentage.toFixed(2) + "% du capital.";
+            } else {
+                document.getElementById('result').innerHTML = "Veuillez entrer des valeurs numériques valides.";
+            }
+        }
+    </script>
+
+</body>
+</html>
